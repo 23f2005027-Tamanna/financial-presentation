@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reveal.js Presentation</title>
+
+  <!-- Reveal.js core CSS from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4/dist/theme/black.css" id="theme">
+
+  <!-- Highlight.js for code highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+
+  <style>
+    /* small style tweak for speaker note visibility in print/export */
+    .reveal .speaker-notes { font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <div class="reveal">
+    <div class="slides">
+      <!-- Load Markdown file as slides -->
+      <section data-markdown="slides.md"
+               data-separator="^\n---\n"
+               data-separator-vertical="^\n--\n"
+               data-separator-notes="^Note:"
+               data-charset="utf-8">
+      </section>
+    </div>
+  </div>
+
+  <!-- Reveal.js and plugins -->
+  <script src="https://unpkg.com/reveal.js@4/dist/reveal.js"></script>
+
+  <!-- Markdown plugin, Math (MathJax), Highlight -->
+  <script src="https://unpkg.com/reveal.js@4/plugin/markdown/markdown.esm.js" type="module"></script>
+  <script src="https://unpkg.com/reveal.js@4/plugin/notes/notes.esm.js" type="module"></script>
+  <script src="https://unpkg.com/reveal.js@4/plugin/math/math.esm.js" type="module"></script>
+  <script src="https://unpkg.com/reveal.js@4/plugin/highlight/highlight.esm.js" type="module"></script>
+
+  <!-- Initialize Reveal (use type=module to import plugin modules) -->
+  <script type="module">
+    import Reveal from 'https://unpkg.com/reveal.js@4/dist/reveal.esm.js';
+    import Markdown from 'https://unpkg.com/reveal.js@4/plugin/markdown/markdown.esm.js';
+    import Notes from 'https://unpkg.com/reveal.js@4/plugin/notes/notes.esm.js';
+    import Math from 'https://unpkg.com/reveal.js@4/plugin/math/math.esm.js';
+    import Highlight from 'https://unpkg.com/reveal.js@4/plugin/highlight/highlight.esm.js';
+
+    const deck = new Reveal({
+      plugins: [ Markdown, Notes, Math, Highlight ],
+      hash: true,
+      slideNumber: true,
+      center: true,
+      transition: 'fade',
+      math: {
+        // Use MathJax (default). You can also configure KaTeX here.
+        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+      }
+    });
+
+    deck.initialize();
+  </script>
+
+</body>
+</html>
