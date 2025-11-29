@@ -1,141 +1,141 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reveal.js Presentation</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Data Science Presentation</title>
 
-  <!-- Reveal.js CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4/dist/reveal.css">
-  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4/dist/theme/black.css">
+    <!-- 1. Load Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
+    
+    <!-- 2. Choose a Theme (Black, White, League, Beige, etc.) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/black.min.css" id="theme">
 
-  <!-- Highlight.js CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
-
-  <style>
-    .reveal .speaker-notes { font-size: 0.9rem; }
-    .static-math {
-      font-size: 0.9rem;
-      margin: 0.5rem 1rem;
-      padding: 0.4rem;
-      border-left: 3px solid #333;
-      background: rgba(0,0,0,0.02);
-      color: #111;
-    }
-    @media (max-width:600px){ .static-math{ font-size:0.85rem; } }
-  </style>
+    <!-- 3. Load Syntax Highlighting CSS for Code Blocks -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
 </head>
-
 <body>
 
-  <!-- Static email for autograder -->
-  <noscript>23f2005027@ds.study.iitm.ac.in</noscript>
-  <div style="display:none">23f2005027@ds.study.iitm.ac.in</div>
+    <div class="reveal">
+        <div class="slides">
 
-  <!-- Static fragments for autograder -->
-  <div style="display:none">
-    <span class="fragment">a</span>
-    <span class="fragment">b</span>
-    <span class="fragment">c</span>
-  </div>
+            <!-- SLIDE 1: Title & Email Requirement -->
+            <section>
+                <h3>Financial Data Science</h3>
+                <p>Assignment Presentation</p>
+                <p style="font-size: 0.6em; color: #42affa;">
+                    Email: 23f2005027@ds.study.iitm.ac.in
+                </p>
+                <!-- Speaker Notes Requirement -->
+                <aside class="notes">
+                    Welcome everyone. This is the introductory slide containing the required student email address.
+                </aside>
+            </section>
 
-  <!-- REQUIRED STATIC CODE BLOCK FOR SYNTAX-HIGHLIGHTING CHECK -->
-  <pre><code class="language-python">
-def example():
-    x = 10
-    y = 20
-    return x + y
+            <!-- SLIDE 2: Markdown Requirement -->
+            <!-- The 'data-markdown' attribute tells Reveal.js to parse the content as Markdown -->
+            <section data-markdown>
+                <textarea data-template>
+                    ## Project Goals
+                    (Written in Markdown)
 
-print(example())
-  </code></pre>
+                    * Analyze market trends
+                    * Implement **predictive models**
+                    * Visualize risk factors
+                    
+                    ---
+                    
+                    ### Why Markdown?
+                    It allows for quick content iteration without writing heavy HTML tags.
+                </textarea>
+            </section>
 
-  <!-- VISIBLE static math block (LaTeX) so autograder detects equations -->
-  <div class="static-math" aria-hidden="false">
-    <!-- MathML (machine-readable) - added to satisfy graders that look for MathML -->
-    <div aria-hidden="false">
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-        <mrow>
-          <mi>d</mi><mi>_</mi><mi>1</mi>
-          <mo>=</mo>
-          <mfrac>
-            <mrow>
-              <mi>ln</mi><mo>(</mo><mi>S</mi><mo>_</mo><mi>0</mi><mo>/</mo><mi>K</mi><mo>)</mo>
-              <mo>+</mo>
-              <mo>(</mo><mi>r</mi><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi>&sigma;</mi><mn>2</mn></msup><mo>)</mo><mi>T</mi>
-            </mrow>
-            <mrow>
-              <mi>&sigma;</mi><msqrt><mi>T</mi></msqrt>
-            </mrow>
-          </mfrac>
-        </mrow>
-      </math>
+            <!-- SLIDE 3: Fragments (Animations) Requirement -->
+            <section>
+                <h3>Analysis Steps</h3>
+                <p>We followed a strict pipeline:</p>
+                <ul>
+                    <!-- 'fragment' class makes elements appear one by one -->
+                    <li class="fragment">Data Collection (API)</li>
+                    <li class="fragment">Data Cleaning & Preprocessing</li>
+                    <li class="fragment fade-in-then-semi-out">Feature Engineering</li>
+                    <li class="fragment highlight-red">Final Model Training</li>
+                </ul>
+                <aside class="notes">
+                    Click "Right Arrow" to reveal each step. Note the highlight on the final step.
+                </aside>
+            </section>
+
+            <!-- SLIDE 4: Code Samples Requirement -->
+            <section>
+                <h3>Python Implementation</h3>
+                <p>Calculating Returns</p>
+                <pre><code class="python" data-trim data-noescape>
+import numpy as np
+
+def calculate_log_returns(prices):
+    """
+    Compute log returns from price data
+    """
+    # Use numpy for vectorization
+    returns = np.diff(np.log(prices))
+    return returns
+                </code></pre>
+            </section>
+
+            <!-- SLIDE 5: Mathematical Equations Requirement -->
+            <section>
+                <h3>Black-Scholes Formula</h3>
+                <p>For call option pricing:</p>
+                
+                <!-- Reveal.js uses MathJax/KaTeX logic. Use \[ \] for blocks -->
+                <div style="font-size: 0.8em;">
+                \[
+                C(S_t, t) = N(d_1)S_t - N(d_2)Ke^{-r(T-t)}
+                \]
+                </div>
+
+                <p>Where:</p>
+                <div style="font-size: 0.6em;">
+                \[
+                d_1 = \frac{ln(\frac{S_t}{K}) + (r + \frac{\sigma^2}{2})(T-t)}{\sigma\sqrt{T-t}}
+                \]
+                </div>
+                
+                <aside class="notes">
+                    This is the standard Black-Scholes formula used for European Call Options.
+                    N(.) represents the cumulative distribution function.
+                </aside>
+            </section>
+
+            <!-- SLIDE 6: Conclusion -->
+            <section>
+                <h2>Thank You</h2>
+                <p>Questions?</p>
+            </section>
+
+        </div>
     </div>
 
-    <!-- LaTeX (human-readable / MathJax will render this) -->
-    \[
-    d_1 = \frac{\ln(S_0/K) + \left(r + \tfrac{1}{2}\sigma^2\right)T}{\sigma\sqrt{T}}, \quad
-    d_2 = d_1 - \sigma\sqrt{T}
-    \]
-    <br>
-    Inline: $C = S_0 \Phi(d_1) - K e^{-rT}\Phi(d_2)$
-  </div>
+    <!-- 4. Load Reveal.js Scripts from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/highlight/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/math/math.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/plugin/notes/notes.min.js"></script>
 
-  <!-- Hidden fallback duplicates -->
-  <noscript>
-    \[
-    d_1 = \frac{\ln(S_0/K) + \left(r + \tfrac{1}{2}\sigma^2\right)T}{\sigma\sqrt{T}}, \quad d_2 = d_1 - \sigma\sqrt{T}
-    \]
-    $C = S_0 \Phi(d_1) - K e^{-rT}\Phi(d_2)$
-  </noscript>
-  <div style="display:none" aria-hidden="true">
-    \[
-    d_1 = \frac{\ln(S_0/K) + \left(r + \tfrac{1}{2}\sigma^2\right)T}{\sigma\sqrt{T}}, \quad d_2 = d_1 - \sigma\sqrt{T}
-    \]
-    $C = S_0 \Phi(d_1) - K e^{-rT}\Phi(d_2)$
-  </div>
-
-  <!-- Reveal.js container -->
-  <div class="reveal">
-    <div class="slides">
-      <section data-markdown="./slides.md"
-               data-separator="^\n---\n"
-               data-separator-vertical="^\n--\n"
-               data-separator-notes="^Note:"
-               data-charset="utf-8">
-      </section>
-    </div>
-  </div>
-
-  <!-- Reveal.js -->
-  <script src="https://unpkg.com/reveal.js@4/dist/reveal.js"></script>
-
-  <!-- Highlight.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-  <script>if (typeof hljs !== 'undefined') { try { hljs.highlightAll(); } catch(e){} }</script>
-
-  <!-- MathJax for client rendering -->
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-  <!-- Reveal.js plugins (module) -->
-  <script type="module">
-    import Reveal from "https://unpkg.com/reveal.js@4/dist/reveal.esm.js";
-    import Markdown from "https://unpkg.com/reveal.js@4/plugin/markdown/markdown.esm.js";
-    import Notes from "https://unpkg.com/reveal.js@4/plugin/notes/notes.esm.js";
-    import Math from "https://unpkg.com/reveal.js@4/plugin/math/math.esm.js";
-    import Highlight from "https://unpkg.com/reveal.js@4/plugin/highlight/highlight.esm.js";
-
-    Reveal.initialize({
-      hash: true,
-      slideNumber: true,
-      center: true,
-      transition: "fade",
-      plugins: [Markdown, Notes, Math, Highlight],
-      math: {
-        mathjax: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-      }
-    });
-  </script>
-
+    <!-- 5. Initialize Reveal.js with Plugins -->
+    <script>
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            // Changed hash to false to prevent SecurityError in iframe/sandboxed environments.
+            // When deploying to GitHub Pages, you can change this back to 'true' if you want deep linking to slides.
+            hash: false, 
+            plugins: [ RevealMarkdown, RevealHighlight, RevealMath.KaTeX, RevealNotes ]
+        });
+    </script>
 </body>
 </html>
-
